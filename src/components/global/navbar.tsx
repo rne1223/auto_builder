@@ -2,10 +2,14 @@ import React from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import {MenuIcon} from 'lucide-react';
+import { UserButton, currentUser } from '@clerk/nextjs';
 
 type Props = {}
 
 const Navbar = async (props: Props) => {
+
+    const user = await currentUser()
+
   return (
     <header className="fixed right-0 left-0 top-0 py-4 px-4 
         bg-black/40 backdrop-blur-lg z-[100] 
@@ -34,26 +38,13 @@ const Navbar = async (props: Props) => {
                 <li>
                     <Link href="#">Pricing</Link>
                 </li>
-                <li>
-                    <Link href="#">Clients</Link>
-                </li>
-                <li>
-                    <Link href="#">Resources</Link>
-                </li>
-                <li>
-                    <Link href="#">Documentation</Link>
-                </li>
-                <li>
-                    <Link href="#">Enterprise</Link>
-                </li>
             </ul>
         </nav>
         
         {/* Button */}
         <aside className="flex items-center gap-4">
-            <Link
-            href="/dashboard"
-            className="relative inline-flex h-10 overflow-hidden 
+            <Link href="/dashboard"
+                className="relative inline-flex h-10 overflow-hidden 
                 rounded-full p-[2px] focus:outline-none focus:ring-2 
                 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
             >
@@ -65,15 +56,17 @@ const Navbar = async (props: Props) => {
                     rounded-full bg-slate-950 px-3 py-1 text-sm 
                     font-medium text-white backdrop-blur-3xl"
                 >
-                    {//WIP: wire up user
-                    true ? 'Dashboard' : 'Get Started'}
-                    {/* {user ? 'Dashboard' : 'Get Started'} */}
+                    {/* {//WIP: wire up user
+                    true ? 'Dashboard' : 'Get Started'} */}
+
+                    {user ? 'Dashboard' : 'Get Started'}
                 </span>
             </Link>
 
             {//WIP: wire up user
             /* {user ? <UserButton afterSignOutUrl="/" /> : null}
             <MenuIcon className="md:hidden" />      */}
+            <UserButton />
 
             <MenuIcon className='md:hidden'/>
         </aside>

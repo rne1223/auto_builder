@@ -1,4 +1,3 @@
-
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -20,8 +19,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["@uploadcare/blocks/types/jsx"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/middleware.ts"],
   "exclude": ["node_modules"]
 }
