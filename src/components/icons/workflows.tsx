@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-type Props = { selected: boolean }
+type Props = { selected?: boolean }
 
 const Workflows = ({ selected }: Props) => {
   return (

@@ -57,9 +57,18 @@ export type EditorNodeType = {
 
 export type EditorNode = EditorNodeType
 
+export enum Actions {
+  LOAD_DATA = "LOAD_DATA",
+  UPDATE_NODE = "UPDATE_NODE",
+  REDO = "REDO",
+  UNDO = "UNDO",
+  SELECTED_ELEMENT = "SELECTED_ELEMENT",
+}
+
 export type EditorActions =
   | {
-      type: 'LOAD_DATA'
+      // type: 'LOAD_DATA'
+      type: Actions.LOAD_DATA,
       payload: {
         elements: EditorNode[]
         edges: {
@@ -70,15 +79,23 @@ export type EditorActions =
       }
     }
   | {
-      type: 'UPDATE_NODE'
+      // type: 'UPDATE_NODE'
+      type: Actions.UPDATE_NODE,
       payload: {
         elements: EditorNode[]
       }
     }
-  | { type: 'REDO' }
-  | { type: 'UNDO' }
+  | { 
+      // type: 'REDO' 
+      type: Actions.REDO,
+    }
+  | { 
+      // type: 'UNDO',
+      type: Actions.UNDO,
+    }
   | {
-      type: 'SELECTED_ELEMENT'
+      // type: 'SELECTED_ELEMENT'
+      type: Actions.SELECTED_ELEMENT,
       payload: {
         element: EditorNode
       }

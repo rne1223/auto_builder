@@ -31,8 +31,12 @@ type Props = {
   subTitle?: string
 }
 
+
 const Workflowform = ({ subTitle, title }: Props) => {
-  const { setClose } = useModal()
+  const { setClose, setOpen } = useModal()
+
+// Challenge
+// WIP: Wire up DB
 
   const form = useForm<z.infer<typeof WorkflowFormSchema>>({
     mode: 'onChange',
